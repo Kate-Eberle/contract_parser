@@ -1,0 +1,23 @@
+# Python cache and environments
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+.env
+*.egg-info/
+
+# IDE and OS junk
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local data and logs
+data_in/
+data_out/
+logs/
+
+# Allow empty structure with keepers
+!data_in/.gitkeep
+!data_out/.gitkeep
+!logs/.gitkeep
