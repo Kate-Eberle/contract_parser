@@ -253,20 +253,3 @@ if __name__ == "__main__":
         print("✓ All dependencies installed")
     else:
         print("✗ Missing dependencies")
-# ==============================================================================
-# PIPELINE VARIABLES (Added for compatibility)
-# ==============================================================================
-
-LOG_DIR = DATA_OUT / 'logs'
-SKIPPED_LOG = LOG_DIR / 'skipped_files.log'
-ERROR_LOG = LOG_DIR / 'errors.log'
-RUN_LOG = LOG_DIR / 'run.log'
-OUTPUT_CSV = DATA_OUT / 'contracts_extracted.csv'  # Pipeline default output
-ENTITY_TYPES = set(VALID_ENTITY_TYPES)  # Convert list to set for pipeline
-# Additional pipeline variable
-INCLUDE_TABLES_AS_MARKDOWN = True  # Include tables in text extraction
-
-# Additional variables needed by pipeline modules
-TEXT_CACHE_DIR = CACHE_DIR / 'text'
-TEXT_MD_DIR = PREVIEW_DIR / 'markdown'
-INCLUDE_TABLES_AS_MARKDOWN = True

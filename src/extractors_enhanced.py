@@ -9,7 +9,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple, Any
 
-from .config import (
+from .config_enhanced import (
     ADMIN_FEE_PATTERNS,
     SERVICE_SECTION_HEADINGS,
     PASS_THROUGH_KEYWORDS,
@@ -518,17 +518,3 @@ if __name__ == "__main__":
     for key, value in result.items():
         if key != 'has_fee':  # Skip internal field
             print(f"  {key}: {value}")
-
-def build_record(ref, filename, pages, title_guess, entity_type=None):
-    '''Build a record for pipeline compatibility.'''
-    # Convert pages format from pipeline to what extract_all_fields expects
-    pages_dict = [{'text': text, 'page_num': page} for page, text in pages]
-    
-    # Extract all fields using the enhanced extraction
-    result = extract_all_fields(pages_dict, filename, entity_type)
-    
-    # Add ref number
-    result['ref'] = ref
-    result['title_guess'] = title_guess
-    
-    return result
