@@ -2,8 +2,8 @@
 from pathlib import Path
 import traceback
 from src.parsers_pdf import extract_pdf_pages
-from src.cache_io import compute_sha256, save_jsonl_cache, save_markdown_preview
-from src.config import PROJECT_ROOT, WRITE_TEXT_CACHE, WRITE_MD_PREVIEW
+from archived.cache_io import compute_sha256, save_jsonl_cache, save_markdown_preview
+from archived.config import PROJECT_ROOT, WRITE_TEXT_CACHE, WRITE_MD_PREVIEW
 
 def main():
     try:

@@ -14,30 +14,26 @@ def validate_row_shape(row: List[str]) -> None:
 
 def as_csv_row(rec) -> List[str]:
     """
-    Convert Extracted dataclass/dict to list of 23 CSV fields (with spacers).
-    Returns validated row ready for CSV writing.
+    Convert record to CSV row - handles dict format from extractors.
     """
-    # Handle both object and dict formats
+    # Handle dictionary format (what we're actually getting)
     if isinstance(rec, dict):
-        # It's already a dictionary from enhanced extractors
-        qc = rec.get('qc_flags', '')
         fields = [
             str(rec.get('ref', '')),
             rec.get('effective_date', ''),
             rec.get('contract_title', ''),
-            rec.get('admin_fee', ''),  # Note: enhanced uses 'admin_fee' not 'admin_service_fee'
+            rec.get('admin_fee', ''),
             rec.get('services', ''),
             rec.get('duplicate', ''),
             rec.get('modifications', ''),
-            qc,
-            rec.get('services_pg_number', ''),  # Note: different field name
+            rec.get('qc_flags', ''),
+            rec.get('services_pg_number', ''),
             rec.get('termination_date', ''),
-            rec.get('pass_through_language', ''),  # Note: different field name
+            rec.get('pass_through_language', ''),
             rec.get('relevant_product', '')
         ]
     else:
-        # It's an object with attributes
-        qc = "; ".join(sorted(set(rec.qc_flags))) if rec.qc_flags else ""
+        # Handle object format (old code path)
         fields = [
             str(rec.ref),
             rec.effective_date,
@@ -46,21 +42,20 @@ def as_csv_row(rec) -> List[str]:
             rec.services,
             rec.duplicate,
             rec.modifications,
-            qc,
+            rec.qc_flags,
             rec.services_pg,
             rec.termination_date,
             rec.passthrough,
             rec.relevant_product
         ]
     
-    # Add spacer columns (alternating pattern)
+    # Add spacer columns
     row = row_with_spacers(fields)
     
     # Validate before returning
     validate_row_shape(row)
     return row
 
-
 def header() -> List[str]:
-    """Return the standard 23-column header row."""
+    """Return the standard 23-column header row.""" 
     return HEADER.copy()

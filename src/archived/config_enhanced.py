@@ -79,6 +79,12 @@ ADMIN_FEE_PATTERNS = [
 # Services section headings (from spec)
 SERVICE_SECTION_HEADINGS = [
     'administrative services',
+    'GPO Administrative Services',
+    'PBM Administrative Services'
+    'SD Administrative Services', 
+    'SP Administrative Services', 
+    '3PL/HUB Administrative Services',
+    'WHSL Administrative Services',
     'data services', 
     'scope of services',
     'distribution services',
@@ -92,6 +98,12 @@ SERVICE_SECTION_HEADINGS = [
 
 # Pass-through keywords (from spec)
 PASS_THROUGH_KEYWORDS = [
+    "share Administrative Fees", "price concession", "treated as a price concession",
+    "point-of-sale price reduction", "POS price reduction", "remit", "share all or some of", "remitted fee", "share administrative fee", 
+    "may share", "remit", "pass-through", "pass-through",  "GPO's agreements with its GPO Members may require GPO to share",
+    "require GPO to share some or all of the GPO Fees",
+    "GPO Administrative Fee is remitted",
+    "share some or all of the Administrative fees",
     'share administrative fees',
     'price concession',
     'treated as a price concession',
@@ -105,39 +117,143 @@ PASS_THROUGH_KEYWORDS = [
     'pass through',
     'gpo to share',
     'safe harbor'
+    
 ]
 
 # Services by entity type (from spec appendix)
 ENTITY_SERVICES = {
-    'PBM': [
-        'rebate calc', 'eligibility checks', 'payor contracting',
-        'utilization reporting', 'invoice support', 'analytics portal',
-        'QBRs', 'audit support', 'rebate distribution', 'formulary intelligence'
-    ],
     'SP': [
-        'case management', 'BV/PA support', 'dispense feeds',
-        'PAP handling', 'implementation', 'adverse event reporting',
-        'shipping/returns', 'account management'
+        # Program Setup & Implementation
+        'start up services', 'program setup', 'it setup', 'implementation', 'onboarding',
+        # Dispensing & Pharmacy Operations
+        'dispense fee', 'pharmacy dispensing', 'pap dispensing', 'free goods dispensing',
+        'prescription fulfillment', 'inventory management',
+        # Program Management
+        'program management', 'program manager', 'dedicated liaison', 'manufacturer liaison',
+        # Data & Reporting
+        'data reporting', 'enhanced data', 'dispense reporting', 'status reporting',
+        'inventory reporting', 'kpi reporting', 'ad hoc reporting',
+        # AE & Product Complaints
+        'ae reporting', 'adverse event', 'product complaint', 'pqc reconciliation',
+        # Patient Support & Case Management
+        'case manager', 'case management', 'adherence programs', 'patient education',
+        'nurse support', 'pharmacist support',
+        # Hub Collaboration
+        'hub collaboration', 'triage to hub', 'warm transfers',
+        # PAP/Bridge/Copay
+        'pap product', 'copay assistance', 'bridge program', 'patient assistance',
+        # Returns
+        'returns', 'recalls', 'lost product', 'shipment replacement'
     ],
-    'WHSL': [
-        'pick/pack/ship', 'returns processing', 'chargeback admin',
-        'EDI 852/867', 'pipeline reporting', 'licensed storage',
-        'emergency orders', 'AR management'
-    ],
+    
     'SD': [
-        'product intake', 'cold-chain storage', 'order processing',
-        'drop-ship coordination', 'contract management', 'EDI setup',
-        'performance data', 'customer support'
+        # Inventory Management
+        'inventory management', 'product intake', 'reconciliation', 'pipeline management',
+        # Order Management
+        'order management', 'emergency orders', 'drop ship', 'order fulfillment',
+        'routine orders', '24/7 orders',
+        # Pick Pack Ship
+        'pick pack ship', 'packing', 'shipment', 'temperature controlled',
+        'next day delivery',
+        # AR Management
+        'ar management', 'accounts receivable', 'credit billing', 'invoicing',
+        'collections',
+        # Contracts & Chargebacks
+        'contracts administration', 'chargeback admin', 'chargeback processing',
+        # Data & Reporting
+        'data reporting', 'edi 852', 'edi 867', 'demand planning',
+        'inventory data', 'sales data',
+        # Returns
+        'returns management', 'product returns', 'destruction',
+        # Customer Service
+        'customer service', 'customer support',
+        # Compliance
+        'compliance', 'audit', 'inspection'
     ],
+    
+    'WHSL': [
+        # Contract & Chargeback
+        'contracts administration', 'chargeback admin', 'chargeback processing',
+        # Inventory
+        'inventory management', 'stock product', 'maintain inventory', 'storage conditions',
+        # Order Fulfillment
+        'pick pack ship', 'emergency shipments', 'order fulfillment',
+        # Returns
+        'returns management', 'returns processing', 'recalls',
+        # Data Reporting
+        'data reporting', 'edi 852', 'edi 867', 'pipeline data',
+        # AR/Billing
+        'credit billing', 'ar management', 'accounts receivable',
+        # Customer Service
+        'customer service', 'customer support',
+        # Compliance
+        'legal compliance', 'record maintenance', 'audit support'
+    ],
+    
     'GPO': [
-        'member management', 'OID program admin', 'dashboards',
-        'member data reporting', 'discount disclosures', 'business reviews',
-        'contract summaries', 'portal posting'
+        # Contract Admin
+        'maintain agreements', 'manage agreements', 'contract summary', 'contract summaries',
+        # Membership
+        'membership list', 'member onboarding', 'member offboarding', 'provide membership',
+        # Rebate Program
+        'administer rebate', 'rebate program', 'off invoice', 'discount admin',
+        # Member Communication
+        'member communication', 'contract changes', 'product availability',
+        # Performance Tracking
+        'track performance', 'member performance', 'purchase data', 'member purchase',
+        # Business Reviews
+        'business review', 'business reviews', 'qbrs',
+        # Compliance
+        'monitor compliance', 'compliance obligations', 'safe harbor'
     ],
-    '3PL/HUB': [
-        'implementation', 'system setup', 'data feeds',
-        'portal hosting', 'call center ops', 'order placement',
-        'consignment mgmt', 'compliance monitoring'
+    
+    'PBM': [
+        # Rebate Program
+        'calculate rebates', 'provide invoice', 'allocate rebates', 'distribute rebates',
+        'rebate calc', 'rebate distribution', 'rebate processing',
+        # Contracting
+        'negotiate contract', 'payor contracting', 'gpo contracting',
+        # Utilization Reporting
+        'utilization reports', 'utilization reporting', 'data portal', 'portal access',
+        # Formulary
+        'formulary status', 'formulary management', 'membership list',
+        # Compliance
+        'rebate payment', 'internal controls', 'eligibility monitoring',
+        'compliance monitoring'
+    ],
+    
+    '3PL': [
+        # Order Management
+        'order placement', 'account management', 'call center', 'order portal',
+        # Distribution
+        'distribution services', 'warehousing', 'pick pack ship', 'climate controlled',
+        'inventory management', 'returns',
+        # Sales Support
+        'sales support', 'sales rep management', 'training', 'compliance',
+        # Insurance & Claims
+        'insurance verification', 'claims processing', 'financial reporting',
+        # Quality & Compliance
+        'quality assurance', 'cgmp program', 'risk management', 'regulatory compliance',
+        # Recall & Complaints
+        'recalls', 'complaints', 'adverse event', 'product recall'
+    ],
+    
+    'HUB': [
+        # Setup/Implementation
+        'operations project', 'implementation management', 'system setup', 'configuration',
+        'it setup', 'team licensing',
+        # Case Management
+        'case manager', 'dedicated case', 'nurse case', 'quality specialist',
+        # Data & Reporting
+        'data feed', 'data aggregation', 'analytics', 'reporting portal',
+        'ad hoc reporting', 'variable development',
+        # Benefit Investigation
+        'electronic bi', 'benefit investigation', 'pharmacy eligibility', 'medical eligibility',
+        'prior authorization', 'prescriber license',
+        # Patient Support
+        'field team portal', 'patient access', 'copay setup', 'accumulator setup',
+        # Program Management
+        'program management', 'monthly management', 'program manager', 'business reviews'
     ]
 }
 

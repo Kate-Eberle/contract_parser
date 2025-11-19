@@ -8,7 +8,7 @@ from docx2python import docx2python
 from docx2pdf import convert as docx2pdf_convert
 
 from .parsers_pdf import extract_pdf_pages
-from .config import DOCX_TO_PDF_ENABLED, DOCX_AS_PDF_DIR
+from .archived.config import DOCX_TO_PDF_ENABLED, DOCX_AS_PDF_DIR
 
 
 # ------------------ Paragraph/table-based DOCX parsing ------------------

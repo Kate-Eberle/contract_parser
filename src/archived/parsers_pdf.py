@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import List, Dict, Optional
 import fitz  # PyMuPDF
 
-from .config import INCLUDE_TABLES_AS_MARKDOWN
+from .archived.config import INCLUDE_TABLES_AS_MARKDOWN
 
 
 def _page_text(doc: fitz.Document, i: int) -> str:

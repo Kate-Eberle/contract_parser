@@ -3,56 +3,50 @@ import csv
 import re
 from pathlib import Path
 from pattern_library import ADMIN_FEE_PATTERNS, DATA_FEE_PATTERNS
-import pytesseract
-from PIL import Image
-import io
-
 
 def extract_contract(pdf_path):
-    """Extract text from contract, using OCR if needed."""
+    """Extract what we actually need from a contract."""
     doc = fitz.open(str(pdf_path))
     full_text = ""
-    
-    for page_num, page in enumerate(doc):
-        # Try normal text extraction first
-        text = page.get_text()
-        
-        # If no text found, use OCR
-        if len(text.strip()) < 50:  # Likely an image
-            print(f"    OCR needed for page {page_num + 1}")
-            
-            pix = page.get_pixmap(dpi=300)
-            img_data = pix.tobytes("png")
-            img = Image.open(io.BytesIO(img_data))
-            
-            text = pytesseract.image_to_string(img)
-        
-        full_text += text
-    
+    for page in doc:
+        full_text += page.get_text()
     doc.close()
     
-    # Now extract data from full_text
-    # Extract effective date
+    # Extract effective date - WORKING PATTERN
     date_match = re.search(r'((?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+\d{4})', full_text, re.IGNORECASE)
     effective_date = date_match.group(1) if date_match else ""
     
-    # Extract admin fee using pattern library
+    '''
+    # Extract admin fee - WORKING FOR ZINC
+    fee_match = re.search(r'(?:GPO|Administrative)\s+(?:Administrative\s+)?Fee\s+Percentage[^%\d]*(\d+\.?\d*)%', full_text, re.IGNORECASE)
+    admin_fee = f"{fee_match.group(1)}%" if fee_match else ""
+    '''
+    
+    # extract admin fee w/ multiple patterns
     admin_fee = ""
-    for pattern_dict in ADMIN_FEE_PATTERNS:
-        pattern = pattern_dict['pattern']
+    fee_patterns = [
+        r'(?:GPO|Administrative)\s+(?:Administrative\s+)?Fee\s+Percentage[^%\d]*(\d+\.?\d*)%',  # Original
+        r'Administrative\s+Fees?[^%]*?(\d+\.?\d*)%'  # New simpler pattern
+    ]
+    for pattern in fee_patterns:
         fee_match = re.search(pattern, full_text, re.IGNORECASE)
         if fee_match:
             admin_fee = f"{fee_match.group(1)}%"
-            break
-
-    # Extract data fee using pattern library
+            break      
+   
+    # Extract data/portal fee
     data_fee = ""
-    for pattern_dict in DATA_FEE_PATTERNS:
-        pattern = pattern_dict['pattern']
+    data_patterns = [
+        r'Portal\s+Fee[^%\d]*(\d+\.?\d*)%',
+        r'Data\s+Fee[^%\d]*(\d+\.?\d*)%',
+        r'(\d+\.?\d*)%\s+Portal'
+    ]
+    for pattern in data_patterns:
         data_match = re.search(pattern, full_text, re.IGNORECASE)
         if data_match:
             data_fee = f"{data_match.group(1)}%"
             break
+
 
     # Extract services if fee exists
     admin_services = ""
@@ -77,7 +71,7 @@ def extract_contract(pdf_path):
             admin_services = re.sub(r'\s+', ' ', services_text)
     
 
-    # Extract data/portal services if data fee exists
+ # Extract data/portal services if data fee exists
     data_services = ""
     if data_fee != "":
         # FIRST: Look for "Data Services" section with numbered list

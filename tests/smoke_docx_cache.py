@@ -1,6 +1,6 @@
 from pathlib import Path
-from src.cache_io import compute_sha256, save_jsonl_cache, save_markdown_preview
-from src.config import PROJECT_ROOT, WRITE_TEXT_CACHE, WRITE_MD_PREVIEW
+from archived.cache_io import compute_sha256, save_jsonl_cache, save_markdown_preview
+from archived.config import PROJECT_ROOT, WRITE_TEXT_CACHE, WRITE_MD_PREVIEW
 from src.parsers_docx import render_docx_to_pdf_then_extract
 
 def main():

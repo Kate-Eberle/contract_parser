@@ -1,4 +1,5 @@
 # src/extractors_enhanced.py
+
 """
 Extraction module for Contract Parsing Version 3.2.5.
 Extracts exactly what's needed for the 12-column (+11 spacer) CSV format.
@@ -9,7 +10,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple, Any
 
-from .config_enhanced import (
+from .archived.config import (
     ADMIN_FEE_PATTERNS,
     SERVICE_SECTION_HEADINGS,
     PASS_THROUGH_KEYWORDS,
@@ -518,3 +519,18 @@ if __name__ == "__main__":
     for key, value in result.items():
         if key != 'has_fee':  # Skip internal field
             print(f"  {key}: {value}")
+
+def build_record(ref, filename, pages, title_guess, entity_type=None):
+    '''Build a record for pipeline compatibility.'''
+    # The pages are already in the right format from parsers_pdf
+    # They're a list of dicts with 'page' and 'text' keys
+    
+    # Just pass them directly to extract_all_fields
+    result = extract_all_fields(pages, filename, entity_type)
+    
+    # Add ref number
+    result['ref'] = ref
+    result['title_guess'] = title_guess
+    
+    return result
+

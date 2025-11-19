@@ -3,7 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 import logging
 from typing import List
-from .config import (
+from .archived.config import (
     DATA_IN, DATA_OUT, LOG_DIR, OUTPUT_CSV,
     SKIPPED_LOG, ERROR_LOG, RUN_LOG, ENTITY_TYPES
 )

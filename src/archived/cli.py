@@ -2,7 +2,7 @@
 import sys
 import argparse
 from pathlib import Path
-from .pipeline import run_pipeline
+from ..pipeline import run_pipeline
 from .config import DATA_IN, OUTPUT_CSV
 
 def main():
