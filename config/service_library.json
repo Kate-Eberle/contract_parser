@@ -1,0 +1,173 @@
+{
+  "GPO": {
+    "administer_rebate_program": {
+      "standard_name": "Administer Rebate Program",
+      "variations": [
+        "GPO.*shall.*administer.*rebate.*program",
+        "administer.*the.*rebate.*program.*on.*behalf",
+        "GPO.*will.*calculate.*and.*pay.*rebate",
+        "reconcile.*and.*pay.*rebates.*to.*members",
+        "administer.*member.*rebate.*program",
+        "process.*and.*distribute.*rebate.*payments",
+        "rebate.*program.*administration.*services"
+      ]
+    },
+    "business_review_meetings": {
+      "standard_name": "Business Review Meetings",
+      "variations": [
+        "conduct.*quarterly.*business.*review",
+        "participate.*in.*business.*review.*meeting",
+        "hold.*regular.*business.*review",
+        "quarterly.*business.*review.*meeting.*with",
+        "attend.*business.*review.*meeting",
+        "GPO.*and.*Supplier.*shall.*meet.*quarterly",
+        "semi[- ]?annual.*business.*review"
+      ]
+    },
+    "contract_performance_tool": {
+      "standard_name": "Contract Performance Tool",
+      "variations": [
+        "include.*contract.*performance.*in.*dashboard",
+        "aggregate.*contract.*performance.*in.*member.*facing",
+        "display.*contract.*performance.*on.*GPO.*website",
+        "member.*portal.*displaying.*contract.*performance",
+        "include.*pricing.*in.*member.*facing.*online.*dashboard",
+        "contract.*performance.*tool.*on.*website"
+      ]
+    },
+    "create_contract_summary": {
+      "standard_name": "Create Contract Summary",
+      "variations": [
+        "create.*contract.*summary.*outlining",
+        "maintain.*resource.*document.*that.*outlines",
+        "provide.*contract.*summary.*to.*members",
+        "GPO.*shall.*create.*and.*maintain.*contract.*summary",
+        "summary.*document.*outlining.*discount.*and.*rebate",
+        "make.*contract.*summary.*available.*via.*member.*website"
+      ]
+    },
+    "data_portal_access": {
+      "standard_name": "Data Portal Access",
+      "variations": [
+        "provide.*access.*to.*GPO.*data.*portal",
+        "implement.*data.*portal.*or.*e[- ]?commerce.*system",
+        "access.*to.*electronic.*data.*portal",
+        "provide.*access.*to.*GHX.*portal",
+        "EDI.*transactions.*including.*(852|867)",
+        "member.*access.*to.*online.*data.*portal"
+      ]
+    },
+    "facilitate_designated_wholesaler_pricing": {
+      "standard_name": "Facilitate Designated Wholesaler Pricing",
+      "variations": [
+        "make.*contract.*pricing.*available.*to.*authorized.*wholesaler",
+        "facilitate.*pricing.*with.*designated.*wholesaler",
+        "provide.*pricing.*terms.*to.*authorized.*distributor",
+        "make.*available.*the.*pricing.*terms.*to.*wholesaler",
+        "pricing.*available.*through.*authorized.*wholesaler"
+      ]
+    },
+    "maintain_manage_agreement": {
+      "standard_name": "Maintain and Manage Agreement with all Members",
+      "variations": [
+        "GPO.*shall.*maintain.*participation.*agreement.*with.*member",
+        "manage.*member.*participation.*agreement",
+        "maintain.*agreement.*between.*Supplier.*and.*member",
+        "GPO.*will.*maintain.*and.*manage.*member.*agreement"
+      ]
+    },
+    "monitor_compliance_obligations": {
+      "standard_name": "Monitor Compliance Obligations",
+      "variations": [
+        "GPO.*shall.*monitor.*compliance.*with.*safe.*harbor",
+        "assist.*members.*in.*compliance.*with.*reporting",
+        "inform.*members.*of.*obligation.*to.*report.*discount",
+        "monitor.*member.*compliance.*with.*safe.*harbor.*regulation"
+      ]
+    },
+    "perform_other_admin_functions": {
+      "standard_name": "Perform Other Administrative Functions",
+      "variations": [
+        "perform.*other.*administrative.*function",
+        "provide.*additional.*contract.*administration.*service",
+        "other.*administrative.*service.*as.*mutually.*agreed"
+      ]
+    },
+    "post_company_logo": {
+      "standard_name": "Post Company Logo on Website",
+      "variations": [
+        "post.*Supplier.*logo.*on.*GPO.*website",
+        "display.*company.*logo.*on.*member.*website",
+        "include.*Supplier.*logo.*on.*GPO.*homepage",
+        "link.*to.*Supplier.*website.*from.*GPO.*site"
+      ]
+    },
+    "promotional_allowance": {
+      "standard_name": "Promotional Allowance",
+      "variations": [
+        "promotional.*allowance.*to.*promote.*product",
+        "marketing.*support.*for.*contract.*promotion",
+        "sponsor.*GPO.*meeting.*or.*event",
+        "promotional.*support.*for.*product.*awareness"
+      ]
+    },
+    "provide_member_communication": {
+      "standard_name": "Provide Member Communication",
+      "variations": [
+        "GPO.*shall.*communicate.*contract.*information.*to.*member",
+        "notify.*member.*of.*contract.*change",
+        "send.*communication.*to.*member.*regarding.*contract",
+        "provide.*member.*with.*contract.*update.*and.*notification"
+      ]
+    },
+    "provide_membership_list": {
+      "standard_name": "Provide Membership List",
+      "variations": [
+        "provide.*Supplier.*with.*membership.*list",
+        "furnish.*current.*member.*roster",
+        "supply.*list.*of.*participating.*member",
+        "provide.*updated.*membership.*roster",
+        "share.*member.*contact.*information",
+        "maintain.*and.*provide.*member.*list"
+      ]
+    },
+    "provide_product_training": {
+      "standard_name": "Provide Product Training/Education",
+      "variations": [
+        "provide.*product.*training.*to.*member",
+        "educate.*member.*on.*product.*feature",
+        "conduct.*training.*session.*for.*GPO.*member",
+        "product.*education.*and.*training.*program"
+      ]
+    },
+    "track_member_performance": {
+      "standard_name": "Track Member Performance",
+      "variations": [
+        "track.*member.*purchase.*and.*performance",
+        "provide.*quarterly.*sales.*report.*to.*Supplier",
+        "monitor.*member.*purchasing.*activity",
+        "report.*member.*performance.*and.*goal.*attainment",
+        "provide.*purchase.*data.*report.*to.*Supplier"
+      ]
+    },
+    "resolve_disputes": {
+      "standard_name": "Resolve Disputes",
+      "variations": [
+        "GPO.*shall.*assist.*in.*resolving.*dispute.*between",
+        "facilitate.*resolution.*of.*dispute.*between.*member.*and.*Supplier",
+        "help.*resolve.*any.*dispute.*arising.*under.*this.*agreement"
+      ]
+    },
+    "eblast_contract_updates": {
+      "standard_name": "Eblast Contract Updates",
+      "variations": [
+        "send.*email.*blast.*announcing.*contract",
+        "distribute.*contract.*announcement.*via.*email",
+        "electronic.*communication.*of.*contract.*update"
+      ]
+    }
+  },
+  "PBM": {},
+  "SD": {},
+  "SP": {}
+}
